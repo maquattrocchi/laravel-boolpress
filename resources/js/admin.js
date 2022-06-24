@@ -27,6 +27,21 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
+ const app = new Vue({
     el: '#app',
+    data:{
+        currentForm: null,
+        itemId: null
+    },
+    methods:{
+        openModal(event,id){
+            event.preventDefault();
+            this.itemId = id;
+            this.currentForm = event.currentTarget.parentNode;
+            $('#deleteModal').modal('show');
+        },
+        submitForm(){
+            this.currentForm.submit();
+        }
+    }
 });

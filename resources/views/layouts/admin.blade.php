@@ -5,16 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>Boolpress - {{$title}}</title>
-
     <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 </head>
@@ -35,26 +31,27 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Accedi</a>
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link btn cs_btn" href="{{ route('register') }}">Registrati</a>
+                                    <a class="nav-link btn cs_btn" href="{{ route('register') }}">Register</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item d-flex gap-3 dropdown">
                                 <a href="{{route('admin.posts.index')}}" class="nav-link">Posts</a>
                                 <a href="{{route('admin.categories.index')}}" class="nav-link">Categories</a>
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-uppercase" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-capitalize" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('admin.home') }}">Dashboard</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                        Esci
+                                        Logout
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

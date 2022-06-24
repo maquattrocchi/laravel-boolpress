@@ -49794,7 +49794,22 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    currentForm: null,
+    itemId: null
+  },
+  methods: {
+    openModal: function openModal(event, id) {
+      event.preventDefault();
+      this.itemId = id;
+      this.currentForm = event.currentTarget.parentNode;
+      $('#deleteModal').modal('show');
+    },
+    submitForm: function submitForm() {
+      this.currentForm.submit();
+    }
+  }
 });
 
 /***/ }),
@@ -49942,9 +49957,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\laravel-one-to-many\resources\js\admin.js */"./resources/js/admin.js");
-__webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\laravel-one-to-many\resources\sass\admin.scss */"./resources/sass/admin.scss");
-module.exports = __webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\laravel-one-to-many\resources\sass\front.scss */"./resources/sass/front.scss");
+__webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\laravel-boolpress\resources\js\admin.js */"./resources/js/admin.js");
+__webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\laravel-boolpress\resources\sass\admin.scss */"./resources/sass/admin.scss");
+module.exports = __webpack_require__(/*! C:\Users\Utente\boolean\esercizi-php\laravel-boolpress\resources\sass\front.scss */"./resources/sass/front.scss");
 
 
 /***/ })
