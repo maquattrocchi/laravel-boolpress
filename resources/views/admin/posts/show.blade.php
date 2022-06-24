@@ -1,4 +1,5 @@
 @extends('layouts.admin', ['title' => '#'.$post->id])
+
 @section('content')
     <div class="container">
         <div class="row mb-3">
@@ -16,11 +17,11 @@
         </div>
         <div class="row">
             <div class="col-6">
-                <h3>Content</h3>
+                <h3 class="text-uppercase">Content</h3>
                 <p>{{$post->content}}</p>
             </div>
             <div class="col-6">
-                <h3>Info</h3>
+                <h3 class="text-uppercase">Info</h3>
                 <p class="border-bottom border-3 py-3 mb-0">Creation Date: {{$post->created_at}}</p>
                 <p class="border-bottom border-3 py-3 mb-0">Category: {{$post->category ? $post->category->name : 'Not Defined'}}</p>
                 @if($post->publish)

@@ -43,7 +43,7 @@
                 <h6>Tags</h6>
                 @foreach($tags as $tag)
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input @error('category_id') is-invalid @enderror" name="tags[]" id="{{$tag->name}}" {{in_array($tag->id,old('tags',[])) ? 'checked' : ''}} value="{{$tag->id}}">
+                    <input type="checkbox" class="form-check-input @error('category_id') is-invalid @enderror" name="tags[]" id="{{$tag->name}}" {{$post->tags->contains($tag->id) ? 'checked' : ''}} value="{{$tag->id}}">
                     <label class="form-check-label" for="{{$tag->name}}">{{$tag->name}}</label>
                 </div>
                 @endforeach
