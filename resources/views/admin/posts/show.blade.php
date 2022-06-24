@@ -28,6 +28,14 @@
                 @else
                     <p class="border-bottom border-3 py-3 mb-0 text-uppercase text-danger fw-bold">To publish</p>
                 @endif
+                <div class="border-bottom border-3 py-3 ">
+                    <p class="mb-0">Tags:</p>
+                    <ul>
+                        @foreach ($post->tags as $item)
+                            <li>{{$item->name}}</li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
