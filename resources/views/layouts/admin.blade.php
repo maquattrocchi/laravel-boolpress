@@ -24,7 +24,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-
+                
                 <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav">
@@ -42,6 +42,7 @@
                             <li class="nav-item d-flex gap-3 dropdown">
                                 <a href="{{route('admin.posts.index')}}" class="nav-link">Posts</a>
                                 <a href="{{route('admin.categories.index')}}" class="nav-link">Categories</a>
+                                <a href="{{route('admin.tags.index')}}" class="nav-link">Tags</a>
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-capitalize" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
