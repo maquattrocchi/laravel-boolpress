@@ -4,10 +4,10 @@
     <div class="container">
         <div class="row mb-3">
             <div class="col-8">
-                <h1 class="text-uppercase mt-3">{{$post->title}}</h1>
-                @if($post->image)
-                    <img src="{{$post->image}}" alt="{{$post->title}}">
+                @if ($post->image)
+                <img class="w-50" src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->title }}">
                 @endif
+                <h1 class="text-uppercase">{{$post->title}}</h1>
             </div>
             <div class="col-4 align-self-center">
                 <div class="d-flex flex-column gap-2 mx-auto">
@@ -17,11 +17,11 @@
         </div>
         <div class="row">
             <div class="col-8">
-                <h3 class="text-uppercase">Content</h3>
+                <h4 class="text-uppercase">Content</h4>
                 <p>{!! $post->content !!}</p>
             </div>
             <div class="col-4">
-                <h3 class="text-uppercase">Info</h3>
+                <h4 class="text-uppercase">Info</h4>
                 <p class="border-bottom border-3 py-3 mb-0">Creation Date: {{$post->created_at}}</p>
                 <p class="border-bottom border-3 py-3 mb-0">Category: {{$post->category ? $post->category->name : 'Not Defined'}}</p>
                 @if($post->publish)
