@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\Category;
 use App\Tag;
@@ -15,7 +15,7 @@ class PostController extends Controller
         'title'=> 'required|max:100',
         'content'=> 'required',
         'category_id'=> 'required|exists:categories,id',
-        'image'=> 'nullable|max:255',
+        'image' => 'nullable|image|mimes:jpeg,bmp,png,svg|max:2048',
         'publish'=> 'sometimes|accepted',
         'tags'=> 'nullable|exists:tags,id',
     ];
@@ -59,10 +59,15 @@ class PostController extends Controller
         $newPost = new Post();
         $newPost->title = $data['title'];
         $newPost->content = $data['content'];
-        $newPost->image = $data['image'];
+        //$newPost->image = $data['image'];
         $newPost->category_id = $data['category_id'];
         $newPost->publish = isset($data['publish']);
         $newPost->slug = Post::generateSlug($data['title']);
+        //upload image
+        if(isset($data['image'])){
+            $path_image = Storage::put('uploads', $data['image']);
+            $newPost->image = $path_image;
+        }
         $newPost->save();
         //tags
         if(isset($data['tags'])){
@@ -118,10 +123,18 @@ class PostController extends Controller
         $post->image = $data['image'];
         $post->publish = isset($data['publish']);
         $post->category_id = $data['category_id'];
+        //upload image
+        if(isset($data['image'])){
+            Storage::delete($post->image);
+            $path_image = Storage::put('uploads', $data['image']);
+            $post->image = $path_image;
+        }
         $post->save();
         //tags
         if(isset($data['tags'])){
             $post->tags()->sync($data['tags']);        
+        }else{
+            $post->tags()->sync([]);        
         }
         //reindirizzare alla show del nuovo post
         return redirect()->route('admin.posts.show', $post->id);

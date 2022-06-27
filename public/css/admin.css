@@ -17648,3 +17648,8 @@ readers do not read off random characters that represent icons */
   background-color: #117AC9;
   color: #fff !important;
 }
+
+.form-label {
+  font-size: 1.3rem;
+  color: #117AC9;
+}
