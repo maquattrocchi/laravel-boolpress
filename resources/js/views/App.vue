@@ -1,26 +1,19 @@
 <template>
-    <div class="title">
-        <app-main/>
+    <div>
+        <main-component/>
     </div>
 </template>
 
 <script>
-import AppMain from '../components/AppMain'
+import MainComponent from '../components/MainComponent.vue'
 export default {
     name: 'App',
     components: {
-        AppMain
+        MainComponent
     },
 }
 </script>
 
 <style lang="scss" scoped>
-.title{
-    height: calc(100% - 80px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: center;
-}
+
 </style>
