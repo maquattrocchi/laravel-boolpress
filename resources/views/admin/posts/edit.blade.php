@@ -15,7 +15,7 @@
             </div>
             <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
-                <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('content') is-invalid @enderror" required>{{$post->content}}</textarea>
+                <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('content') is-invalid @enderror">{{$post->content}}</textarea>
                 @error('content')
                     <div class="alert alert-danger"> {{$message}} </div>
                 @enderror
@@ -58,4 +58,8 @@
             <button type="submit" class="btn cs_btn">Edit</button>
         </form>
     </div>
+    <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        bkLib.onDomLoaded(nicEditors.allTextAreas);
+    </script>
 @endsection

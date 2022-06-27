@@ -16,11 +16,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6">
+            <div class="col-8">
                 <h3 class="text-uppercase">Content</h3>
-                <p>{{$post->content}}</p>
+                <p>{!! $post->content !!}</p>
             </div>
-            <div class="col-6">
+            <div class="col-4">
                 <h3 class="text-uppercase">Info</h3>
                 <p class="border-bottom border-3 py-3 mb-0">Creation Date: {{$post->created_at}}</p>
                 <p class="border-bottom border-3 py-3 mb-0">Category: {{$post->category ? $post->category->name : 'Not Defined'}}</p>

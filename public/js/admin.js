@@ -37274,9 +37274,11 @@ window.boolpress = {
   currentForm: null,
   itemId: null,
   openModal: function openModal(event, id) {
+    console.log(event);
     event.preventDefault();
     this.itemId = id;
     this.currentForm = event.currentTarget.parentNode;
+    $('#modal-body').html("Are you sure you want to delete this element with id #".concat(this.itemId, " ?"));
     $('#deleteModal').modal('show');
   },
   submitForm: function submitForm() {

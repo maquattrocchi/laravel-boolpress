@@ -17653,3 +17653,11 @@ readers do not read off random characters that represent icons */
   font-size: 1.3rem;
   color: #117AC9;
 }
+
+#dashboard a {
+  color: black;
+  font-size: 1.5rem;
+}
+#dashboard a:hover {
+  color: #117AC9;
+}

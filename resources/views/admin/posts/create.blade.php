@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1>Create new Post</h1>
-        <form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('admin.posts.store')}}" method="post" enctype=”multipart/form-data”>
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
@@ -14,7 +14,7 @@
             </div>
             <div class="mb-3">
                 <label for="content" class="form-label">Content</label>
-                <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('content') is-invalid @enderror" required>{{old('content')}}</textarea>
+                <textarea name="content" id="content" cols="30" rows="10" class="form-control @error('content') is-invalid @enderror">{{old('content')}}</textarea>
                 @error('content')
                     <div class="alert alert-danger"> {{$message}} </div>
                 @enderror
@@ -58,4 +58,9 @@
             <button type="submit" class="btn cs_btn">Add</button>
         </form>
     </div>
+    <script src="//js.nicedit.com/nicEdit-latest.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      bkLib.onDomLoaded(nicEditors.allTextAreas);
+    </script>
 @endsection

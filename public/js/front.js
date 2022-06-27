@@ -1935,7 +1935,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_AppMain__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/AppMain */ "./resources/js/components/AppMain.vue");
+/* harmony import */ var _components_AppMain__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/AppMain */ "./resources/js/components/AppMain.vue");
 //
 //
 //
@@ -1946,7 +1946,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'App',
   components: {
-    AppMain: _components_AppMain__WEBPACK_IMPORTED_MODULE_0__["default"]
+    AppMain: _components_AppMain__WEBPACK_IMPORTED_MODULE_1__["default"]
   }
 });
 

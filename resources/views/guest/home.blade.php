@@ -37,7 +37,7 @@
                 @endif
             </div>
 
-           <div id="root" class="h-100"></div>
+           <div id="root"></div>
         </div>
         <script src="{{asset('js/front.js')}}" defer></script>
     </body>
