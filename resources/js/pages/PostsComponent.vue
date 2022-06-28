@@ -1,0 +1,15 @@
+<template>
+    <section>
+        <h1>Posts</h1>
+    </section>
+</template>
+
+<script>
+export default {
+    name: 'PostsComponent'
+}
+</script>
+
+<style lang="scss">
+
+</style>
