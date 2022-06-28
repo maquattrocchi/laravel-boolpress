@@ -3,20 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Boolpress - {{$title}}</title>
-    <!-- Scripts -->
     <script src="{{ asset('js/admin.js') }}" defer></script>
-    <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <!-- Styles -->
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand text-uppercase" href="{{ url('/') }}">
                     Boolpress
@@ -45,11 +41,11 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                <a class="nav-link {{Route::currentRouteName() == 'login' ? 'active' : ''}}" href="{{ route('login') }}">Login</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link btn cs_btn" href="{{ route('register') }}">Register</a>
+                                    <a class="nav-link btn cs_btn {{Route::currentRouteName() == 'register' ? 'active' : ''}}" href="{{ route('register') }}">Register</a>
                                 </li>
                             @endif
                         @else

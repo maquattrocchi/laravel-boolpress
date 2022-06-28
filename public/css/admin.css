@@ -17654,10 +17654,18 @@ readers do not read off random characters that represent icons */
   color: #117AC9;
 }
 
-#dashboard a {
-  color: black;
-  font-size: 1.5rem;
-}
-#dashboard a:hover {
+.tab-pane h3 {
   color: #117AC9;
+}
+.tab-pane p {
+  font-size: 1.3rem;
+}
+.tab-pane p .fa-regular {
+  padding: 0.3rem 0.5rem;
+  color: #117AC9;
+  border-radius: 10px;
+}
+.tab-pane p .fa-regular:hover {
+  background-color: #117AC9;
+  color: white;
 }

@@ -19,11 +19,21 @@
     font-size: 1.3rem;
     color: #117AC9;
 }
-#dashboard 
-    a{
-    color: black;
-    font-size: 1.5rem;
-    &:hover{
+.tab-pane{
+    h3{
         color: #117AC9;
     }
+    p{
+        font-size: 1.3rem;
+        .fa-regular{
+            padding: 0.3rem 0.5rem;
+            color: #117AC9;
+            border-radius: 10px;
+            &:hover{
+                background-color: #117AC9;
+                color: white;
+            }
+        }
+    }
+
 }

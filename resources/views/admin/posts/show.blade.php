@@ -33,7 +33,7 @@
                     <p class="mb-0">Tags:</p>
                     <ul>
                         @foreach ($post->tags as $item)
-                            <li>{{$item->name}}</li>
+                            <li><a href="{{route('admin.tags.show', $item->id)}}">{{$item->name}}</a></li>
                         @endforeach
                     </ul>
                 </div>
