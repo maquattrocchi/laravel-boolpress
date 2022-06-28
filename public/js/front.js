@@ -2120,8 +2120,41 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'SinglePostComponent'
+  name: 'SinglePostComponent',
+  data: function data() {
+    return {
+      post: null
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    var slug = this.$route.params.slug;
+    axios.get("/api/posts/".concat(slug)).then(function (response) {
+      _this.post = response.data;
+    });
+  }
 });
 
 /***/ }),
@@ -3662,16 +3695,76 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("section", [
+    _c("div", { staticClass: "container" }, [
+      _c("div", { staticClass: "row mb-4" }, [
+        _c("div", { staticClass: "col-8" }, [
+          _c("h1", { staticClass: "text-uppercase text-center" }, [
+            _vm._v(_vm._s(_vm.post.title)),
+          ]),
+          _vm._v(" "),
+          _c("h4", { staticClass: "text-uppercase" }, [_vm._v("Content")]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-4" }, [
+          _vm.post.image
+            ? _c("img", {
+                staticClass: "w-100",
+                attrs: {
+                  src: "/storage/" + _vm.post.image,
+                  alt: _vm.post.title,
+                },
+              })
+            : _vm._e(),
+          _vm._v(" "),
+          _c("p", { staticClass: "border-bottom border-3 py-3 mb-0" }, [
+            _vm._v(
+              "Category: " +
+                _vm._s(
+                  _vm.post.category ? _vm.post.category.name : "Not Defined"
+                )
+            ),
+          ]),
+          _vm._v(" "),
+          _vm.post.publish
+            ? _c(
+                "p",
+                {
+                  staticClass:
+                    "border-bottom border-3 py-3 mb-0 text-uppercase text-success fw-bold",
+                },
+                [_vm._v("Published")]
+              )
+            : _c(
+                "p",
+                {
+                  staticClass:
+                    "border-bottom border-3 py-3 mb-0 text-uppercase text-danger fw-bold",
+                },
+                [_vm._v("To publish")]
+              ),
+          _vm._v(" "),
+          _c("div", { staticClass: "border-bottom border-3 py-3 " }, [
+            _c("p", { staticClass: "mb-0" }, [_vm._v("Tags:")]),
+            _vm._v(" "),
+            _vm.post.tags
+              ? _c(
+                  "ul",
+                  _vm._l(_vm.post.tags, function (tag) {
+                    return _c("li", { key: tag.id }, [_vm._v(_vm._s(tag.name))])
+                  }),
+                  0
+                )
+              : _vm._e(),
+          ]),
+        ]),
+      ]),
+    ]),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("section", [_c("h1", [_vm._v("SinglePost")])])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
