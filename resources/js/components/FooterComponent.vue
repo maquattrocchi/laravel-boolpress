@@ -92,23 +92,23 @@ footer{
             }
         }
     }
-}
-.col-3{
-    a{
-        color: rgba(255, 255, 255, 0.75);
-        font-size: 1.3rem;
-        margin-right: 1rem;
-        &:hover{
-            color: #fff;
+    .col-3{
+        .fa-brands{
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.3rem;
+            margin-right: 1rem;
+            &:hover{
+                color: #fff;
+            }
         }
-    }
-    select{
-        width: 100%;
-        background-color: #343a40;
-        color: rgba(255, 255, 255, 0.75);
-        padding: 0.5rem;
-        border-radius: 10px;
-        font-size: 1rem;
+        select{
+            width: 100%;
+            background-color: #343a40;
+            color: rgba(255, 255, 255, 0.75);
+            padding: 0.5rem;
+            border-radius: 10px;
+            font-size: 1rem;
+        }
     }
 }
 </style>

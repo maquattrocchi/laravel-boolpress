@@ -11,5 +11,10 @@ $fa-font-path: '../fonts/font-awesome' !default;
 @import '~@fortawesome/fontawesome-free/scss/fontawesome.scss';
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
 @import '~@fortawesome/fontawesome-free/scss/regular.scss';
+@import '~@fortawesome/fontawesome-free/scss/brands.scss';
 
-@import './partials/admin/admin'
+@import './partials/admin/admin';
+
+body{
+    font-family: 'Roboto Condensed', sans-serif;
+}

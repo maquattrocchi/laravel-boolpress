@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,300;1,400;1,700&display=swap);@charset "UTF-8";
 /*!
  * Bootstrap v4.6.1 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors
@@ -19560,4 +19560,8 @@ readers do not read off random characters that represent icons */
 .cs_btn:hover {
   background-color: #117AC9;
   color: #fff !important;
+}
+
+body {
+  font-family: "Roboto Condensed", sans-serif;
 }
