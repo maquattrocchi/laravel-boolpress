@@ -1,5 +1,5 @@
 <template>
-    <main class="mt-3">
+    <main class="py-5">
         <router-view></router-view>
     </main>
 </template>
