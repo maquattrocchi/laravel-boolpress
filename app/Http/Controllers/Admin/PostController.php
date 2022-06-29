@@ -85,6 +85,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        if(empty($post)){
+            abort(404);
+        }
         return view('admin.posts.show', compact('post'));
     }
 

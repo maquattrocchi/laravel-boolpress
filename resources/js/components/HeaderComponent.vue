@@ -13,7 +13,7 @@
                     </li>
                 </ul>
                 <div class="navbar-nav">
-                    <a href="/admin" class="nav-link">Login</a>
+                    <a href="/admin" class="nav-link">Area Riservata</a>
                 </div>
             </div>
         </nav>
