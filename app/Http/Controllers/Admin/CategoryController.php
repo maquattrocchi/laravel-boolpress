@@ -102,6 +102,6 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('admin.categories.index');
+        return redirect()->route('admin.categories.index')->with("success","Category with id: {$category->id} successfully deleted!");
     }
 }

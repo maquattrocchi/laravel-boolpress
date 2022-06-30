@@ -1,5 +1,5 @@
 @extends('layouts.admin', ['title' => '#'.$post->id])
-
+@include('partials/modaldelete')
 @section('content')
     <div class="container">
         <div class="row mb-3">
@@ -10,8 +10,13 @@
                 <h1 class="text-uppercase">{{$post->title}}</h1>
             </div>
             <div class="col-4 align-self-center">
-                <div class="d-flex flex-column gap-2 mx-auto">
-                    <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-warning text-uppercase" type="button">Edit</a>
+                <div class="d-flex flex-column">
+                    <a href="{{route('admin.posts.edit', $post->id)}}" class="btn btn-warning text-uppercase mb-4">Edit</a>
+                    <form action="{{route('admin.posts.destroy', $post->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger text-uppercase w-100" onclick="boolpress.openModal(event, {{ $post->id }})">Delete</button>
+                    </form>
                 </div>
             </div>
         </div>

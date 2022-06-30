@@ -1,5 +1,5 @@
 @extends('layouts.admin', ['title'=> '#'.$tag->id])
-
+@include('partials/modaldelete')
 @section('content')
 <div class="container">
     <div class="row mb-3">
@@ -7,8 +7,13 @@
             <h1 class="text-uppercase mt-3">#{{$tag->id}}</h1>
         </div>
         <div class="col-4 align-self-center">
-            <div class="d-flex flex-column gap-2 mx-auto">
-                <a href="{{route('admin.tags.edit', $tag->id)}}" class="btn btn-warning text-uppercase" type="button">Edit</a>
+            <div class="d-flex flex-column">
+                <a href="{{route('admin.tags.edit', $tag->id)}}" class="btn btn-warning text-uppercase mb-4">Edit</a>
+                <form action="{{route('admin.tags.destroy', $tag->id)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger text-uppercase w-100" onclick="boolpress.openModal(event, {{ $tag->id }})">Delete</button>
+                </form>
             </div>
         </div>
     </div>
