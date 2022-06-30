@@ -62,7 +62,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .list-group-item{
     background-color: transparent;
     a{

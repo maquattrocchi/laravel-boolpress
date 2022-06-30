@@ -66,6 +66,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title{
+    height: calc(100% - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    h1{
+        color: #117AC9;
+        font-size: 80px;
+    }
+    p{
+        font-size: 1.5rem;
+    }
+}
 #crediamo{
     background-color: #044B7A;
     color: white;
