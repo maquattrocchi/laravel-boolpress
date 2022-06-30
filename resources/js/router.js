@@ -10,6 +10,7 @@ import ContactsComponent from './pages/ContactsComponent';
 import PostsComponent from './pages/PostsComponent';
 import SinglePostComponent from './pages/SinglePostComponent';
 import NotFoundComponent from './pages/NotFoundComponent';
+import SingleCategoryComponent from './pages/SingleCategoryComponent'
 
 const router = new VueRouter({
     mode: 'history',
@@ -38,6 +39,11 @@ const router = new VueRouter({
             path: '/posts/:slug',
             name: 'single-post',
             component: SinglePostComponent,
+        },
+        {
+            path: '/categories/:slug',
+            name: 'single-category',
+            component: SingleCategoryComponent,
         },
         {
             //route di fallback

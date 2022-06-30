@@ -1,9 +1,9 @@
 <template>
     <section class="py-5">
-        <div class="container">
-            <h1 class="text-uppercase text-center">Posts</h1>
-            <div class="row row-cols-2 row-cols-md-3" v-if="posts">
-                <div class="col mb-4" v-for="post in posts" :key="post.id">
+        <div class="container" v-if="category">
+            <h1 class="text-center">{{category.name}}</h1>
+            <div class="row row-cols-2 row-cols-md-3" v-if="category && category.posts">
+                <div class="col mb-4" v-for="post in category.posts" :key="post.id">
                     <div class="card h-100">
                         <div class="card-body">
                             <h5 class="card-title">{{post.title}}</h5>
@@ -18,24 +18,24 @@
 
 <script>
 export default {
-    name: 'PostsComponent',
+    name: 'SingleCategoryComponent',
     data(){
         return{
-            posts: [],
+            category: null,
         }
     },
     created(){
-        axios.get('/api/posts').then((response)=>{
-            this.posts = response.data;
+        const slug = this.$route.params.slug;
+        axios.get(`/api/categories/${slug}`).then((response) =>{
+            this.category = response.data;
+        }).catch((error)=>{
+            this.$router.push({name: 'page-404'});
         })
     }
 }
 </script>
 
 <style lang="scss" scoped>
-h1{
-   color: #117AC9; 
-}
 .card{
     background-color: rgb(17 121 201 / 22%);
     border: none;

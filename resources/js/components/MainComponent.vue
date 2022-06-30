@@ -1,5 +1,5 @@
 <template>
-    <main class="pt-5">
+    <main>
         <router-view></router-view>
     </main>
 </template>

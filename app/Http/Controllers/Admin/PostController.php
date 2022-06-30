@@ -88,6 +88,11 @@ class PostController extends Controller
         if(empty($post)){
             abort(404);
         }
+        //autenticazione utente per corrette autorizzazioni
+        // $currentUser = Auth::user();
+        // if($currentUser->id != $post->id //al posto di post->id ovviamente va usata la tabella di collegamento){
+        //     abort(403);
+        // }
         return view('admin.posts.show', compact('post'));
     }
 
@@ -123,7 +128,6 @@ class PostController extends Controller
         }
         $post->title = $data['title'];
         $post->content = $data['content'];
-        $post->image = $data['image'];
         $post->publish = isset($data['publish']);
         $post->category_id = $data['category_id'];
         //upload image

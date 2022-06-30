@@ -1,7 +1,7 @@
 <template>
-    <section>
-        <div class="container">
-            <div class="row mb-4" v-if="post">
+    <section class="py-5">
+        <div class="container" v-if="post">
+            <div class="row mb-4" >
                 <div class="col-8">
                     <h1 class="text-uppercase text-center">{{post.title}}</h1>
                     <h4 class="text-uppercase">Content</h4>
