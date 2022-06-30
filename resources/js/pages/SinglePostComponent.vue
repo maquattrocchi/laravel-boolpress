@@ -39,6 +39,18 @@
                         <textarea class="form-control" id="content" v-model="formData.content" placeholder="Insert Content" rows="5" cols="10"></textarea>
                         <button type="submit" class="btn btn-primary">Send</button>
                     </form>
+                    <div>
+                        <ul v-if="errors.content">
+                            <li v-for="(error, index) in errors.content" :key="index" class="alert alert-danger">
+                                {{error}}
+                            </li>
+                        </ul>
+                        <ul v-if="errors.user_name">
+                            <li v-for="(error, index) in errors.user_name" :key="index" class="alert alert-danger">
+                                {{error}}
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,6 +68,7 @@ export default {
                 content: '',
                 post_id: '',
             },
+            errors: {},
         }
     },
     methods:{
@@ -64,10 +77,10 @@ export default {
                 this.post.comments.push(response.data);
                 this.formData.user_name = '';
                 this.formData.content = '';
-            }).catch((error)=>{
-                console.log(error);
+            }).catch( (error)=>{
+                this.errors = error.response.data.errors;    
+                console.log(this.errors)        
             })
-            
         }
     },
     created(){
@@ -122,6 +135,10 @@ export default {
             right: 0;
             border-radius: 10px;
         }
+    }
+    ul{
+        list-style: none;
+        padding-left: 0;
     }
     .card{
         border-color:  rgb(17 121 201 / 22%);

@@ -2,9 +2,9 @@
 @include('partials/modaldelete')
 @section('content')
 <div class="container">
-    <a href="{{route('admin.categories.create')}}" class="btn btn-outline-primary text-uppercase {{session()->has('success') ? 'mb-0' : 'mb-4'}}">Add New Category</a>
+    <a href="{{route('admin.categories.create')}}" class="btn btn-outline-primary text-uppercase mb-3">Add New Category</a>
     @if (session()->has('success'))
-        <div class="alert alert-success mb-3 mt-3">
+        <div class="alert alert-success mb-3">
             {{ session()->get('success') }}
         </div>
     @endif

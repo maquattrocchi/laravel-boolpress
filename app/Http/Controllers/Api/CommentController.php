@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Comment;
 use App\Mail\CommentMail;
 use Illuminate\Support\Facades\Mail;
-
 class CommentController extends Controller
 {
     /**
@@ -40,6 +40,19 @@ class CommentController extends Controller
     {
         $data = $request->all();
 
+        $validator = Validator::make($data, [
+            'user_name' => 'required|string|max:50',
+            'content' => 'required',
+            'post_id' => 'exists:posts,id'
+        ]);
+        
+        if ($validator->fails()) {
+            return response()->json([
+                "success" => false,
+                "errors" => $validator->errors(),
+                "data" => $data
+            ], 400);
+        }
         $newComment = new Comment();
         $newComment->user_name = $data['user_name'];
         $newComment->content = $data['content'];

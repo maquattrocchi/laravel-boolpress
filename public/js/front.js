@@ -2406,6 +2406,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'SinglePostComponent',
   data: function data() {
@@ -2415,7 +2427,8 @@ __webpack_require__.r(__webpack_exports__);
         user_name: '',
         content: '',
         post_id: ''
-      }
+      },
+      errors: {}
     };
   },
   methods: {
@@ -2428,7 +2441,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.formData.user_name = '';
         _this.formData.content = '';
       })["catch"](function (error) {
-        console.log(error);
+        _this.errors = error.response.data.errors;
+        console.log(_this.errors);
       });
     }
   },
@@ -6976,7 +6990,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".info[data-v-253b705c] {\n  text-transform: uppercase;\n  color: #117AC9;\n}\nimg[data-v-253b705c] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\nform[data-v-253b705c] {\n  border: 1px solid #117AC9;\n  border-radius: 10px;\n  overflow: hidden;\n  position: relative;\n}\nform h5[data-v-253b705c] {\n  text-align: center;\n  border-bottom: 1px solid #117AC9;\n  color: #117AC9;\n}\nform input[type=text].form-control[data-v-253b705c] {\n  border: none;\n  border-bottom: 1px solid #117AC9;\n  border-radius: 0;\n  background-color: transparent;\n}\nform textarea.form-control[data-v-253b705c] {\n  border: none;\n  background-color: transparent;\n}\nform .form-control[data-v-253b705c]:focus {\n  background-color: rgba(17, 121, 201, 0.22) !important;\n  box-shadow: none;\n}\nform .btn[data-v-253b705c] {\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  border-radius: 10px;\n}\n.card[data-v-253b705c] {\n  border-color: rgba(17, 121, 201, 0.22);\n}\n.card .card-header[data-v-253b705c] {\n  background-color: rgba(17, 121, 201, 0.22);\n  border: none;\n}", ""]);
+exports.push([module.i, ".info[data-v-253b705c] {\n  text-transform: uppercase;\n  color: #117AC9;\n}\nimg[data-v-253b705c] {\n  width: 200px;\n  height: 200px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\nform[data-v-253b705c] {\n  border: 1px solid #117AC9;\n  border-radius: 10px;\n  overflow: hidden;\n  position: relative;\n}\nform h5[data-v-253b705c] {\n  text-align: center;\n  border-bottom: 1px solid #117AC9;\n  color: #117AC9;\n}\nform input[type=text].form-control[data-v-253b705c] {\n  border: none;\n  border-bottom: 1px solid #117AC9;\n  border-radius: 0;\n  background-color: transparent;\n}\nform textarea.form-control[data-v-253b705c] {\n  border: none;\n  background-color: transparent;\n}\nform .form-control[data-v-253b705c]:focus {\n  background-color: rgba(17, 121, 201, 0.22) !important;\n  box-shadow: none;\n}\nform .btn[data-v-253b705c] {\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  border-radius: 10px;\n}\nul[data-v-253b705c] {\n  list-style: none;\n  padding-left: 0;\n}\n.card[data-v-253b705c] {\n  border-color: rgba(17, 121, 201, 0.22);\n}\n.card .card-header[data-v-253b705c] {\n  background-color: rgba(17, 121, 201, 0.22);\n  border: none;\n}", ""]);
 
 // exports
 
@@ -40046,6 +40060,48 @@ var render = function () {
                   ),
                 ]
               ),
+              _vm._v(" "),
+              _c("div", [
+                _vm.errors.content
+                  ? _c(
+                      "ul",
+                      _vm._l(_vm.errors.content, function (error, index) {
+                        return _c(
+                          "li",
+                          { key: index, staticClass: "alert alert-danger" },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(error) +
+                                "\n                        "
+                            ),
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.errors.user_name
+                  ? _c(
+                      "ul",
+                      _vm._l(_vm.errors.user_name, function (error, index) {
+                        return _c(
+                          "li",
+                          { key: index, staticClass: "alert alert-danger" },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(error) +
+                                "\n                        "
+                            ),
+                          ]
+                        )
+                      }),
+                      0
+                    )
+                  : _vm._e(),
+              ]),
             ]),
           ]),
         ])
